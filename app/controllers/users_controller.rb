@@ -8,8 +8,8 @@ class UsersController < ApplicationController
   def create
       @user = User.create(user_params)
       session[:user_id] = @user.id
-binding.pry
-      if params[:password] && !params[:password_confirmation].nil?
+#binding.pry
+      if !params[:password] && params[:password_confirmation].nil?
         params[:password] == params[:password_confirmation]
         @user.password = params[:password]
 
