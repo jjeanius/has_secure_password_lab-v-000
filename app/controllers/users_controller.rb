@@ -6,7 +6,7 @@ class UsersController < ApplicationController
   end
 
   def create
-      @user = User.create(name: params[:name], password: params[:password], password_confirmation: params[:password_confirmation], password_digest: params[:password_digest])#user_params)
+      @user = User.create(user_params)
       session[:user_id] = @user.id
 #binding.pry
       if params[:password].present? && !params[:password_confirmation].empty?
