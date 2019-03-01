@@ -9,7 +9,7 @@ class UsersController < ApplicationController
       @user = User.create(user_params)
       session[:user_id] = @user.id
 #binding.pry
-      if params[:password].present? && !params[:password_confirmation].empty?
+      if params[:password].present? && !params[:password_confirmation].nil?
         params[:password] == params[:password_confirmation]
         @user.password = params[:password]
 
